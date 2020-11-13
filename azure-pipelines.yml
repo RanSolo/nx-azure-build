@@ -13,7 +13,15 @@ jobs:
         name: setCommands
       - script: echo $(setCommands.COMMANDS)
         name: echoCommands
-
+  - job: ci
+    timeoutInMinutes: 120
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - template: .azure-pipelines/steps/install-node-modules.yml
+      - script: yarn nx run-many --target=test --all
+      - script: yarn nx run-many --target=lint --all
+      - script: yarn nx run-many --target=build --all --prod
   - job: lint1
     dependsOn: initial_setup
     condition: |
