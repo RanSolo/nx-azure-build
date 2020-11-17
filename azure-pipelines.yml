@@ -19,7 +19,7 @@ jobs:
       vmImage: 'ubuntu-latest'
     steps:
       - template: .azure-pipelines/steps/install-node-modules.yml
-      - script: yarn nx run-many --target=test --all
+      - script: yarn nx run-many --target=test --projects=react-app,ng-app
       - script: yarn nx run-many --target=lint --all
       - script: yarn nx run-many --target=build --all --prod
   - job: lint1
