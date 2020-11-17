@@ -105,9 +105,9 @@
           "test": {
             "builder": "@nrwl/jest:jest",
             "options": {
-              "jestConfig": "apps/ng-app/jest.config.js",
-              "tsConfig": "apps/ng-app/tsconfig.spec.json",
-              "setupFile": "apps/ng-app/src/test-setup.ts"
+              "cypressConfig": "apps/react-app-e2e/cypress.json",
+              "tsConfig": "apps/react-app-e2e/tsconfig.e2e.json",
+              "devServerTarget": "react-app:serve"
             }
           }
         },
@@ -235,6 +235,13 @@
             "cypressConfig": "apps/ng-app-e2e/cypress.json",
             "tsConfig": "apps/ng-app-e2e/tsconfig.e2e.json",
             "devServerTarget": "ng-app:serve"
+          },
+          "test": {
+            "builder": "@nrwl/jest:jest",
+            "options": {
+              "jestConfig": "libs/shared-utils/jest.config.js",
+              "tsConfig": "libs/shared-utils/tsconfig.spec.json"
+            }
           },
           "configurations": {
             "production": {

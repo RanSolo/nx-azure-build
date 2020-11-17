@@ -13,7 +13,7 @@ export class Lib9Component2Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('ngOnInit')
+    console.log('ngOnInitgs')
   }
 
 }

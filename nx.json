@@ -113,5 +113,21 @@
     "react-lib14": {
       "tags": []
     }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "NTgzN2YwNTUtOThmNS00MGIxLThjNmEtNDFlMGJjMzI1NjlkfHJlYWQtd3JpdGU=",
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
   }
 }
