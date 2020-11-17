@@ -22,9 +22,9 @@ jobs:
     steps:
       - template: .azure-pipelines/steps/install-node-modules.yml
       - script: npm install -g nx
-      - script: nx run-many --target=test --all --parallel
-      - script: nx affected --target=lint --all --parallel
-      - script: nx affected --target=build --all --prod --parallel
+      - script: nx affected-many --target=test base=origin/master --parallel
+      - script: nx affected --target=lint base=origin/master --parallel
+      - script: nx affected --target=build base=origin/master --prod --parallel
   - job: lint1
     dependsOn: initial_setup
     condition: |
