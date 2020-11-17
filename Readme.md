@@ -97,7 +97,7 @@ This helps but it still has a ceiling. At some point, this won't be enough. A si
 
 To distribute you need to split your job into multiple jobs.
 
-```
+```sh
 
               / lint1
 initial_setup - lint2
@@ -271,7 +271,7 @@ This example doesn't do anything with the artifacts created by the build, but of
 
 With these changes, rebuild/retesting/relinting everything takes only 7 minutes. The average CI time is even faster. The best part of this is that you can add more agents to your pool when needed, so the worst-case scenaro CI time will always be under 15 minutes regardless of how big the repo is.
 
-### Can We Do Better?
+### Can We Do Better
 
 This example uses a fixed agent graph. This setup works without any problems for all CI providers. It also scales well for repo of almost any size. So before doing anything more sophisticated, I'd try this approach. Some CI providers (e.g., Jenkins) allow scaling the number of agents dynamically. The `print-affected` and `run-many` commands can be used to implement those setups as well.
 
