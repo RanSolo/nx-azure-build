@@ -15,12 +15,8 @@ jobs:
         name: echoCommands
   - job: ci
     timeoutInMinutes: 120
-    pool:
-      vmImage: 'ubuntu-latest'
-    variables:
-      IS_PR: $[ eq(variables['Build.Reason'], 'PullRequest') ]
+    dependsOn: initial_setup
     steps:
-      - template: .azure-pipelines/steps/install-node-modules.yml
       - script: npm nx affected --target=test base=origin/master --parallel
       - script: npm nx affected --target=lint base=origin/master --parallel
       - script: npm nx affected --target=build base=origin/master --prod --parallel
