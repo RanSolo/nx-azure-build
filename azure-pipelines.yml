@@ -17,9 +17,9 @@ jobs:
     timeoutInMinutes: 120
     dependsOn: initial_setup
     steps:
-      - script: npm run-many --target=test --all
-      - script: npm run-many --target=lint --all
-      - script: npm run-many --target=build --all --prod
+      - script: npm run run-many --target=test --all
+      - script: npm run run-many --target=lint --all
+      - script: npm run run-many --target=build --all --prod
   - job: lint1
     dependsOn: initial_setup
     condition: |
