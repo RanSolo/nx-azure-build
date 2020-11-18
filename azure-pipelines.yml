@@ -13,6 +13,17 @@ jobs:
         name: setCommands
       - script: echo $(setCommands.COMMANDS)
         name: echoCommands
+  - job: ci
+    timeoutInMinutes: 120
+    pool:
+      vmImage: 'ubuntu-latest'
+    variables:
+      IS_PR: $[ eq(variables['Build.Reason'], 'PullRequest') ]
+    steps:
+      - template: .azure-pipelines/steps/install-node-modules.yml
+      - script: yarn nx affected --target=test base=origin/master --parallel
+      - script: yarn nx affected --target=lint base=origin/master --parallel
+      - script: yarn nx affected --target=build base=origin/master --prod --parallel
   - job: lint1
     dependsOn: initial_setup
     condition: |
