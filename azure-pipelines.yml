@@ -17,9 +17,9 @@ jobs:
     timeoutInMinutes: 120
     dependsOn: initial_setup
     steps:
-      - script: npm nx affected --target=test base=origin/master --parallel
-      - script: npm nx affected --target=lint base=origin/master --parallel
-      - script: npm nx affected --target=build base=origin/master --prod --parallel
+      - script: yarn nx affected --target=test base=origin/master --parallel
+      - script: yarn nx affected --target=lint base=origin/master --parallel
+      - script: yarn nx affected --target=build base=origin/master --prod --parallel
   - job: lint1
     dependsOn: initial_setup
     condition: |
