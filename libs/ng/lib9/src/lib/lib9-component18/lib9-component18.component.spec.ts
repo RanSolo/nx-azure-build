@@ -18,6 +18,7 @@ describe('Lib9Component18Component', () => {
     fixture = TestBed.createComponent(Lib9Component18Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    console.log('BE')
   });
 
   it('should create', () => {
