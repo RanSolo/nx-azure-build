@@ -13,13 +13,6 @@ jobs:
         name: setCommands
       - script: echo $(setCommands.COMMANDS)
         name: echoCommands
-  - job: ci
-    timeoutInMinutes: 120
-    dependsOn: initial_setup
-    steps:
-      - script: yarn nx affected --target=test --base=origin/master
-      - script: yarn nx affected --target=lint --base=origin/master
-      - script: yarn nx affected --target=build --base=origin/master --prod
   - job: lint1
     dependsOn: initial_setup
     condition: |
